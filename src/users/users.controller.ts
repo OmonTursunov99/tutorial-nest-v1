@@ -6,16 +6,17 @@ import { User } from "./interfaces/user.interface";
 
 @Controller('users')
 export class UsersController {
-  constructor(private usersService: UsersService) {
+  constructor( private usersService: UsersService ) {
 
   }
+
   @Get()
   async findAll(): Promise<User[]> {
     return this.usersService.findAll();
   }
 
   @Post()
-  async create(@Body() createUserDto: CreateUserDto) {
+  async create( @Body() createUserDto: CreateUserDto ) {
     this.usersService.create(createUserDto);
   }
 }
