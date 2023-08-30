@@ -1,8 +1,8 @@
-import { Controller, Get, Req, Post, Body } from '@nestjs/common';
-import { Request } from 'express';
+import { Controller, Get, Post, Body } from '@nestjs/common';
 import { CreateUserDto } from "./dto/create-user.dto";
 import { UsersService } from "./users.service";
 import { User } from "./interfaces/user.interface";
+import { ResponseList } from "../global.interfaces";
 
 @Controller('users')
 export class UsersController {
@@ -11,7 +11,7 @@ export class UsersController {
   }
 
   @Get()
-  async findAll(): Promise<User[]> {
+  async findAll(): Promise<ResponseList<User[]>> {
     return this.usersService.findAll();
   }
 
